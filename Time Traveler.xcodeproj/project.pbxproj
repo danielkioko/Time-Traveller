@@ -12,6 +12,11 @@
 		0F629BFB239C3873004B46E3 /* UserPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629BF9239C3873004B46E3 /* UserPostCollectionViewCell.swift */; };
 		0F629BFC239C3873004B46E3 /* UserPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F629BFA239C3873004B46E3 /* UserPostCollectionViewCell.xib */; };
 		0F629BFE239C3FA8004B46E3 /* UserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629BFD239C3FA8004B46E3 /* UserPost.swift */; };
+		0F71AA2B239C886200FE1C77 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71AA2A239C886200FE1C77 /* ImageService.swift */; };
+		0F71AA2D239EF56000FE1C77 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71AA2C239EF56000FE1C77 /* PlacesViewController.swift */; };
+		0F71AA30239F06F700FE1C77 /* PlaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71AA2E239F06F700FE1C77 /* PlaceTableCell.swift */; };
+		0F71AA31239F06F700FE1C77 /* PlaceTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F71AA2F239F06F700FE1C77 /* PlaceTableCell.xib */; };
+		0F71AA33239F098B00FE1C77 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71AA32239F098B00FE1C77 /* Place.swift */; };
 		0F77D0EF239B4C3900574C5F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F77D0ED239B4C3900574C5F /* PostTableViewCell.swift */; };
 		0F77D0F0239B4C3900574C5F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F77D0EE239B4C3900574C5F /* PostTableViewCell.xib */; };
 		0F77D0F2239B528F00574C5F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F77D0F1239B528F00574C5F /* Post.swift */; };
@@ -42,6 +47,11 @@
 		0F629BF9239C3873004B46E3 /* UserPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F629BFA239C3873004B46E3 /* UserPostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		0F629BFD239C3FA8004B46E3 /* UserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPost.swift; sourceTree = "<group>"; };
+		0F71AA2A239C886200FE1C77 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		0F71AA2C239EF56000FE1C77 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		0F71AA2E239F06F700FE1C77 /* PlaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableCell.swift; sourceTree = "<group>"; };
+		0F71AA2F239F06F700FE1C77 /* PlaceTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableCell.xib; sourceTree = "<group>"; };
+		0F71AA32239F098B00FE1C77 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		0F77D0ED239B4C3900574C5F /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		0F77D0EE239B4C3900574C5F /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		0F77D0F1239B528F00574C5F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -84,8 +94,18 @@
 				0F130335239831A700D6A695 /* UserProfile.swift */,
 				0F629BFD239C3FA8004B46E3 /* UserPost.swift */,
 				0F77D0F1239B528F00574C5F /* Post.swift */,
+				0F71AA32239F098B00FE1C77 /* Place.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0F71AA29239C882200FE1C77 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0F77D0F3239B6A6C00574C5F /* UserService.swift */,
+				0F71AA2A239C886200FE1C77 /* ImageService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		0FC3EFB9239719E400331B23 = {
@@ -115,6 +135,7 @@
 				0F3BAAAD239B44DE00F61914 /* Model */,
 				0FC3EFC7239719E400331B23 /* SceneDelegate.swift */,
 				0FC3EFC5239719E400331B23 /* AppDelegate.swift */,
+				0F71AA29239C882200FE1C77 /* Services */,
 				0FC3EFCB239719E400331B23 /* Main.storyboard */,
 				0FC3EFD1239719EE00331B23 /* Assets.xcassets */,
 				0FC3EFD3239719EE00331B23 /* LaunchScreen.storyboard */,
@@ -122,7 +143,6 @@
 				0FC3EFCE239719E400331B23 /* Time_Traveler.xcdatamodeld */,
 				0FC3EFEF239800F400331B23 /* GoogleService-Info.plist */,
 				0F130337239831F000D6A695 /* Extensions.swift */,
-				0F77D0F3239B6A6C00574C5F /* UserService.swift */,
 			);
 			path = "Time Traveler";
 			sourceTree = "<group>";
@@ -135,6 +155,8 @@
 				0F77D0EE239B4C3900574C5F /* PostTableViewCell.xib */,
 				0F629BF9239C3873004B46E3 /* UserPostCollectionViewCell.swift */,
 				0F629BFA239C3873004B46E3 /* UserPostCollectionViewCell.xib */,
+				0F71AA2E239F06F700FE1C77 /* PlaceTableCell.swift */,
+				0F71AA2F239F06F700FE1C77 /* PlaceTableCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -143,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				0FC3EFDE23971FCA00331B23 /* PostsViewController.swift */,
+				0F71AA2C239EF56000FE1C77 /* PlacesViewController.swift */,
 				0FC3EFED239729AB00331B23 /* FindUsersViewController.swift */,
 				0FC3EFE62397287500331B23 /* ProfileViewController.swift */,
 				0FC3EFF12398091B00331B23 /* UploadViewController.swift */,
@@ -239,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC3EFD5239719EE00331B23 /* LaunchScreen.storyboard in Resources */,
+				0F71AA31239F06F700FE1C77 /* PlaceTableCell.xib in Resources */,
 				0F77D0F0239B4C3900574C5F /* PostTableViewCell.xib in Resources */,
 				0FC3EFD2239719EE00331B23 /* Assets.xcassets in Resources */,
 				0FC3EFF0239800F400331B23 /* GoogleService-Info.plist in Resources */,
@@ -318,12 +342,16 @@
 				0F77D0F4239B6A6C00574C5F /* UserService.swift in Sources */,
 				0FC3EFCA239719E400331B23 /* LoginController.swift in Sources */,
 				0F77D0F2239B528F00574C5F /* Post.swift in Sources */,
+				0F71AA2B239C886200FE1C77 /* ImageService.swift in Sources */,
 				0FC3EFD0239719E400331B23 /* Time_Traveler.xcdatamodeld in Sources */,
 				0FC3EFC6239719E400331B23 /* AppDelegate.swift in Sources */,
 				0F130336239831A700D6A695 /* UserProfile.swift in Sources */,
+				0F71AA33239F098B00FE1C77 /* Place.swift in Sources */,
 				0FC3EFEE239729AB00331B23 /* FindUsersViewController.swift in Sources */,
+				0F71AA30239F06F700FE1C77 /* PlaceTableCell.swift in Sources */,
 				0FC3EFC8239719E400331B23 /* SceneDelegate.swift in Sources */,
 				0FC3EFF22398091B00331B23 /* UploadViewController.swift in Sources */,
+				0F71AA2D239EF56000FE1C77 /* PlacesViewController.swift in Sources */,
 				0F629BFB239C3873004B46E3 /* UserPostCollectionViewCell.swift in Sources */,
 				0F130338239831F000D6A695 /* Extensions.swift in Sources */,
 				0F77D0EF239B4C3900574C5F /* PostTableViewCell.swift in Sources */,

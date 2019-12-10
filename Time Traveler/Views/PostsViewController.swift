@@ -13,6 +13,10 @@ private let reuseIdentifier = "PostCell"
 
 class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var images = ["portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik"]
+    var names = ["Daniel", "Nicholas", "Moulinette", "Daniel", "Nicholas", "Moulinette","Daniel", "Nicholas", "Moulinette", "Daniel", "Nicholas", "Moulinette"]
+    var userImages = ["nicholas", "daniel", "nicholas", "daniel", "nicholas", "daniel", "nicholas", "daniel", "nicholas", "daniel", "nicholas", "daniel"]
+    
     @IBOutlet var tableView: UITableView!
     
     var posts = [Post]()
@@ -28,7 +32,7 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        observePosts()
+       // observePosts()
 
     }
 
@@ -72,12 +76,15 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return images.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! PostTableViewCell
-        cell.set(post: posts[indexPath.row])
+        //cell.set(post: posts[indexPath.row])
+        cell.postImage.image = UIImage(named: images[indexPath.row])
+        cell.userImage.image = UIImage(named: userImages[indexPath.row])
+        cell.usernameLabel.text = names[indexPath.row]
         return cell
     }
     

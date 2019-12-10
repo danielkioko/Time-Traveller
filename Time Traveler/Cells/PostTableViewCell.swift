@@ -37,12 +37,17 @@ class PostTableViewCell: UITableViewCell {
         usernameLabel.text = post.userProfile.name
         
         let profileImageUrl = URL(string: post.userProfile.profileImageUrl)
-        let imageData = try? Data(contentsOf: profileImageUrl!)
-        userImage.image = UIImage(data: imageData!)
+        ImageService.getImage(withURL: profileImageUrl!) {
+            image in
+            self.userImage.image = image
+        }
         
         let url = URL(string: post.image)
-        let data = try? Data(contentsOf: url!)
-        postImage.image = UIImage(data: data!)
+        ImageService.getImage(withURL: url!) {
+            image in
+            self.postImage.image = image
+        }
+        
     }
     
 }

@@ -20,8 +20,12 @@ class UserPostCollectionViewCell: UICollectionViewCell {
     
     func set(post: UserPost) {
         let imgUrl = URL(string: post.image)
-        let imgData = try? Data(contentsOf: imgUrl!)
-        postImage.image = UIImage(data: imgData!)
+        
+        ImageService.getImage(withURL: imgUrl!) {
+            image in
+            self.postImage.image = image
+        }
+        
     }
 
 }

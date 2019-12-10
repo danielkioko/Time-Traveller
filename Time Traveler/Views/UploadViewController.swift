@@ -9,12 +9,18 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import CoreLocation
 
-class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    let locationManager = CLLocationManager()
     
     @IBOutlet var postImageView: UIImageView!
     @IBOutlet var postCaption: UITextField!
     @IBOutlet var postLocation: UITextField!
+    
+    var locationName: String?
+    var locationThumbnail: String?
     
     @IBAction func selectImage(_ sender: Any) {
         handleSelectProfileImageView()
@@ -71,6 +77,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                         }
                     })
 
+                    updateLocationList()
                     print("Sucessfully Uploaded!")
                     
                 }
@@ -118,7 +125,41 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLocation()
     }
+    
+    func setupLocation() {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+           if CLLocationManager.locationServicesEnabled() {
+               locationManager.delegate = self
+               locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+               locationManager.startUpdatingLocation()
+           }
+    }
+    
+    func fetchCityAndCountry(from location: CLLocation, completion: @escaping (_ city: String?, _ Country: String?, _ erro: Error?) ->()){
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            completion(placemarks?.first?.locality,
+                       placemarks?.first?.country,
+                       error)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location: CLLocation = manager.location else { return }
+        fetchCityAndCountry(from: location) { city, country, error in
+            guard let city = city, let country = country, error == nil else { return }
+            self.locationName = (city + ", " + country)
+        }
+    }
+    
+}
+
+func updateLocationList() {
+    
+    let locationDbRef = Database.database().reference().child("locations")
+    
     
 }
 

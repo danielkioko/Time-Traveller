@@ -9,10 +9,12 @@
 import UIKit
 import Firebase
 
-private let reuseIdentifier = "UserPostCell"
-//private let spacing:CGFloat = 32.0
-
 class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    var dummyPosts = [UserPost]()
+    let reuseIdentifier = "UserPostCell"
+    
+    var images = ["portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik"]
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
@@ -27,17 +29,16 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         let cell = UINib(nibName: "UserPostCollectionViewCell", bundle: nil)
         collectionView.register(cell, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
+        let width = UIScreen.main.bounds.width
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 70, bottom: 8, right: 70)
-        layout.minimumLineSpacing = 70
-        layout.minimumInteritemSpacing = 70
+        layout.itemSize = CGSize(width: (width / 2) - 25, height: (width / 2) - 25)
+        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 8
         self.collectionView?.collectionViewLayout = layout
         
-        fetchUser()
-        fetchPosts()
+        //fetchUser()
+        //fetchPosts()
+        self.profileImage.image = UIImage(named: "erik")
     }
     
     func fetchPosts() {
@@ -82,8 +83,12 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                     
                     if childSnapshot.key == uid {
                         let imgUrl = URL(string: profilePhoto)
-                        let imgData = try? Data(contentsOf: imgUrl!)
-                        self.profileImage.image = UIImage(data: imgData!)
+                        
+                        ImageService.getImage(withURL: imgUrl!) {
+                            image in
+                            self.profileImage.image = image
+                        }
+                        
                         self.profileName.text = name
                     }
                     
@@ -91,6 +96,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                     
                 
             }
+            
+            self.profileImage.image = UIImage(named: "erik")
             
         })
         
@@ -100,16 +107,17 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts.count
+        return images.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UserPostCollectionViewCell
-        cell.set(post: posts[indexPath.row])
+        //cell.set(post: posts[indexPath.row])
+        cell.postImage.image = UIImage(named: images[indexPath.row])
         return cell
     }
 

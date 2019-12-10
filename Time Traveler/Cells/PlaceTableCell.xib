@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="146" id="KGk-i7-Jjw" customClass="PlaceTableCell" customModule="Time_Traveler" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVO-SA-5ZP">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miami" translatesAutoresizingMaskIntoConstraints="NO" id="wYh-Jx-inA">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="NSd-E7-sNu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRM-Xj-z1E">
+                                <rect key="frame" x="8" y="59" width="284" height="23"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wYh-Jx-inA" secondAttribute="bottom" id="5tx-Pe-yfT"/>
+                            <constraint firstItem="SRM-Xj-z1E" firstAttribute="leading" secondItem="eVO-SA-5ZP" secondAttribute="leading" constant="8" id="FjO-mU-ukJ"/>
+                            <constraint firstAttribute="bottom" secondItem="SRM-Xj-z1E" secondAttribute="bottom" constant="8" id="REu-gZ-QPf"/>
+                            <constraint firstAttribute="trailing" secondItem="SRM-Xj-z1E" secondAttribute="trailing" constant="8" id="T41-II-gLn"/>
+                            <constraint firstAttribute="trailing" secondItem="wYh-Jx-inA" secondAttribute="trailing" id="TP1-Z8-OjO"/>
+                            <constraint firstItem="wYh-Jx-inA" firstAttribute="leading" secondItem="eVO-SA-5ZP" secondAttribute="leading" id="W45-yF-PRD"/>
+                            <constraint firstItem="wYh-Jx-inA" firstAttribute="top" secondItem="eVO-SA-5ZP" secondAttribute="top" id="tWY-Og-Ryu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="eVO-SA-5ZP" secondAttribute="bottom" id="AB8-62-h99"/>
+                    <constraint firstItem="eVO-SA-5ZP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PUE-Sf-pID"/>
+                    <constraint firstItem="eVO-SA-5ZP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ubK-YZ-W8M"/>
+                    <constraint firstAttribute="trailing" secondItem="eVO-SA-5ZP" secondAttribute="trailing" id="yeQ-5S-PB5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="placeImage" destination="wYh-Jx-inA" id="K2N-zi-AKO"/>
+                <outlet property="placeName" destination="SRM-Xj-z1E" id="KgH-M1-vm7"/>
+            </connections>
+            <point key="canvasLocation" x="197.10144927536234" y="104.46428571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="miami" width="4000" height="6000"/>
+    </resources>
+</document>
