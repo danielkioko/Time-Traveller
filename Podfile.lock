@@ -1,4 +1,9 @@
 PODS:
+  - BSGridCollectionViewLayout (1.2.5)
+  - BSImagePicker (2.10.3):
+    - BSGridCollectionViewLayout (= 1.2.5)
+    - BSImageView (= 1.0.3)
+  - BSImageView (1.0.3)
   - Firebase/Auth (6.13.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.4.0)
@@ -93,6 +98,7 @@ PODS:
   - nanopb/encode (0.3.9011)
 
 DEPENDENCIES:
+  - BSImagePicker
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -101,6 +107,9 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - BSGridCollectionViewLayout
+    - BSImagePicker
+    - BSImageView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -121,6 +130,9 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
+  BSGridCollectionViewLayout: 333dcb457a5a3bdd9212607ab5756553dcfe06cb
+  BSImagePicker: 07404254f2fcdaf5a2eb403c0f8c337267ce8738
+  BSImageView: a149459433a2687157d034c78e059d30ac7f2544
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
   FirebaseAuth: 7d0f84873926f6648bbd1391a318dfb1a26b5e4f
@@ -140,6 +152,6 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
-PODFILE CHECKSUM: 0502908ba29f6cb871d8bcaea29b1406c5bc6dff
+PODFILE CHECKSUM: ff5db17e3b324fada4ccf206b3298069169e0534
 
 COCOAPODS: 1.8.3

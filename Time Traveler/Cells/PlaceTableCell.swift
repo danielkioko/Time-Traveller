@@ -10,8 +10,11 @@ import UIKit
 
 class PlaceTableCell: UICollectionViewCell {
     
-    @IBOutlet var placeImage: UIImageView!
-    @IBOutlet var placeName: UILabel!
+    @IBOutlet weak var placeImage: UIImageView!
+    @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var eventName: UILabel!
+    @IBOutlet weak var lineSeparator: UIView!
+    @IBOutlet weak var placeLayer: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +23,10 @@ class PlaceTableCell: UICollectionViewCell {
         placeName.layer.cornerRadius = placeName.bounds.height / 4
         placeImage.clipsToBounds = true
         placeName.clipsToBounds = true
+        lineSeparator.layer.cornerRadius = 0.5
+        lineSeparator.layer.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+        placeLayer.layer.cornerRadius = 8
+        placeLayer.layer.opacity = 0.95
         
     }
     

@@ -25,7 +25,6 @@ class UserPostCollectionViewCell: UICollectionViewCell {
             image in
             self.postImage.image = image
         }
-        
     }
 
 }

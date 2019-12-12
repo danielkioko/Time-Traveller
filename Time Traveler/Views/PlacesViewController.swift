@@ -27,8 +27,8 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.dataSource = self
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 180, height: 90)
-        layout.minimumInteritemSpacing = 2
+        layout.itemSize = CGSize(width: 180, height: 275)
+        layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         self.collectionView?.collectionViewLayout = layout
         
