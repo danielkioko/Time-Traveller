@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import Firebase
 import Foundation
 import CoreLocation
 import BSImagePicker
@@ -22,6 +23,9 @@ class NewEventViewController: UIViewController, CLLocationManagerDelegate {
     
     var imageAssets = [PHAsset]()
     var eventImages = [UIImage]()
+    
+    typealias FileCompletionBlock = () -> Void
+    var block: FileCompletionBlock?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,12 +119,44 @@ class NewEventViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func done(_ sender:Any) {
         
+        startUploading {
+            "Uploading..."
+        }
+        
     }
     
-    func uploadEventImages() {
-        
-        
-        
+    func startUploading(completion: @escaping FileCompletionBlock) {
+         if eventImages.count == 0 {
+            completion()
+            return;
+         }
+
+         block = completion
+         uploadImage(forIndex: 0)
+    }
+    
+    func uploadImage(forIndex index:Int) {
+
+         if index < eventImages.count {
+            let data = eventImages[index].pngData()!
+            
+            let indexString = String(index)
+            let name = eventName.text
+            
+            let fileName = String(format: "%@.png", "_img_")
+
+              FirFile.shared.upload(data: data, withName: fileName, block: { (url) in
+                  /// After successfully uploading call this method again by increment the **index = index + 1**
+                  print(url ?? "Couldn't not upload. You can either check the error or just skip this.")
+                  self.uploadImage(forIndex: index + 1)
+               })
+            
+            return
+          }
+
+          if block != nil {
+             block!()
+          }
     }
 
 }

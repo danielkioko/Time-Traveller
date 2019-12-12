@@ -37,6 +37,7 @@
 		0FC3EFEE239729AB00331B23 /* FindUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3EFED239729AB00331B23 /* FindUsersViewController.swift */; };
 		0FC3EFF0239800F400331B23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3EFEF239800F400331B23 /* GoogleService-Info.plist */; };
 		0FC3EFF22398091B00331B23 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3EFF12398091B00331B23 /* UploadViewController.swift */; };
+		0FEA664623A2C32B0010A331 /* UploadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA664523A2C32B0010A331 /* UploadHelper.swift */; };
 		E035AE68585DF1484B1693D7 /* Pods_Time_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00952D2D2C7B667479420AD /* Pods_Time_Traveler.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		0FC3EFED239729AB00331B23 /* FindUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUsersViewController.swift; sourceTree = "<group>"; };
 		0FC3EFEF239800F400331B23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FC3EFF12398091B00331B23 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		0FEA664523A2C32B0010A331 /* UploadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadHelper.swift; sourceTree = "<group>"; };
 		D00952D2D2C7B667479420AD /* Pods_Time_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 			children = (
 				0F77D0F3239B6A6C00574C5F /* UserService.swift */,
 				0F71AA2A239C886200FE1C77 /* ImageService.swift */,
+				0FEA664523A2C32B0010A331 /* UploadHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				0F71AA2D239EF56000FE1C77 /* PlacesViewController.swift in Sources */,
 				0F629BFB239C3873004B46E3 /* UserPostCollectionViewCell.swift in Sources */,
 				0F130338239831F000D6A695 /* Extensions.swift in Sources */,
+				0FEA664623A2C32B0010A331 /* UploadHelper.swift in Sources */,
 				0F77D0EF239B4C3900574C5F /* PostTableViewCell.swift in Sources */,
 				0F629BFE239C3FA8004B46E3 /* UserPost.swift in Sources */,
 				0FC3EFE72397287500331B23 /* ProfileViewController.swift in Sources */,

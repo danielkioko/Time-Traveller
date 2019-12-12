@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DPr-Wo-A6Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7ff-uI-9hu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -233,10 +233,10 @@
             </objects>
             <point key="canvasLocation" x="3489.8550724637685" y="482.8125"/>
         </scene>
-        <!--New Event View Controller-->
+        <!--NewEvent-->
         <scene sceneID="BKD-Nl-EL1">
             <objects>
-                <viewController id="DPr-Wo-A6Q" customClass="NewEventViewController" customModule="Time_Traveler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewEvent" title="NewEvent" id="DPr-Wo-A6Q" customClass="NewEventViewController" customModule="Time_Traveler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CRp-Xt-ObI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
