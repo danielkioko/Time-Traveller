@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0F130336239831A700D6A695 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F130335239831A700D6A695 /* UserProfile.swift */; };
 		0F130338239831F000D6A695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F130337239831F000D6A695 /* Extensions.swift */; };
+		0F24F2D823A4701400509D3B /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F2D623A4701400509D3B /* UserTableViewCell.swift */; };
+		0F24F2D923A4701400509D3B /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F24F2D723A4701400509D3B /* UserTableViewCell.xib */; };
 		0F629BFB239C3873004B46E3 /* UserPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629BF9239C3873004B46E3 /* UserPostCollectionViewCell.swift */; };
 		0F629BFC239C3873004B46E3 /* UserPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F629BFA239C3873004B46E3 /* UserPostCollectionViewCell.xib */; };
 		0F629BFE239C3FA8004B46E3 /* UserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629BFD239C3FA8004B46E3 /* UserPost.swift */; };
@@ -38,14 +40,14 @@
 		0FC3EFF0239800F400331B23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3EFEF239800F400331B23 /* GoogleService-Info.plist */; };
 		0FC3EFF22398091B00331B23 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3EFF12398091B00331B23 /* UploadViewController.swift */; };
 		0FEA664623A2C32B0010A331 /* UploadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA664523A2C32B0010A331 /* UploadHelper.swift */; };
-		E035AE68585DF1484B1693D7 /* Pods_Time_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00952D2D2C7B667479420AD /* Pods_Time_Traveler.framework */; };
+		6510F56BBB24C532C0C8B0E1 /* Pods_Time_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DF50F274BA7B817D41775E /* Pods_Time_Traveler.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03FEF65BDD59649B9B8A4826 /* Pods-Time Traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Traveler.release.xcconfig"; path = "Target Support Files/Pods-Time Traveler/Pods-Time Traveler.release.xcconfig"; sourceTree = "<group>"; };
-		091F0286E8B7EB25C52DD55B /* Pods-Time Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Traveler.debug.xcconfig"; path = "Target Support Files/Pods-Time Traveler/Pods-Time Traveler.debug.xcconfig"; sourceTree = "<group>"; };
 		0F130335239831A700D6A695 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		0F130337239831F000D6A695 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0F24F2D623A4701400509D3B /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		0F24F2D723A4701400509D3B /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		0F629BF9239C3873004B46E3 /* UserPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F629BFA239C3873004B46E3 /* UserPostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		0F629BFD239C3FA8004B46E3 /* UserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPost.swift; sourceTree = "<group>"; };
@@ -77,7 +79,9 @@
 		0FC3EFEF239800F400331B23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FC3EFF12398091B00331B23 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		0FEA664523A2C32B0010A331 /* UploadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadHelper.swift; sourceTree = "<group>"; };
-		D00952D2D2C7B667479420AD /* Pods_Time_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		781CDB244EDD517D1A152AFB /* Pods-Time Traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Traveler.release.xcconfig"; path = "Target Support Files/Pods-Time Traveler/Pods-Time Traveler.release.xcconfig"; sourceTree = "<group>"; };
+		A3DF50F274BA7B817D41775E /* Pods_Time_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9988CDBA511B6A8BE9276C2 /* Pods-Time Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Traveler.debug.xcconfig"; path = "Target Support Files/Pods-Time Traveler/Pods-Time Traveler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E035AE68585DF1484B1693D7 /* Pods_Time_Traveler.framework in Frameworks */,
+				6510F56BBB24C532C0C8B0E1 /* Pods_Time_Traveler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +123,7 @@
 				0FC3EFC4239719E400331B23 /* Time Traveler */,
 				0FC3EFC3239719E400331B23 /* Products */,
 				AB3AB3ED8B6DDE1500D63193 /* Pods */,
-				4B2C7EAF41C0D7D46CF93BF5 /* Frameworks */,
+				69E0527043B66997086DBF22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +166,8 @@
 				0F629BFA239C3873004B46E3 /* UserPostCollectionViewCell.xib */,
 				0F71AA2E239F06F700FE1C77 /* PlaceTableCell.swift */,
 				0F71AA2F239F06F700FE1C77 /* PlaceTableCell.xib */,
+				0F24F2D623A4701400509D3B /* UserTableViewCell.swift */,
+				0F24F2D723A4701400509D3B /* UserTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -189,10 +195,10 @@
 			path = "Login & Register";
 			sourceTree = "<group>";
 		};
-		4B2C7EAF41C0D7D46CF93BF5 /* Frameworks */ = {
+		69E0527043B66997086DBF22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D00952D2D2C7B667479420AD /* Pods_Time_Traveler.framework */,
+				A3DF50F274BA7B817D41775E /* Pods_Time_Traveler.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -200,8 +206,8 @@
 		AB3AB3ED8B6DDE1500D63193 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				091F0286E8B7EB25C52DD55B /* Pods-Time Traveler.debug.xcconfig */,
-				03FEF65BDD59649B9B8A4826 /* Pods-Time Traveler.release.xcconfig */,
+				E9988CDBA511B6A8BE9276C2 /* Pods-Time Traveler.debug.xcconfig */,
+				781CDB244EDD517D1A152AFB /* Pods-Time Traveler.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -213,12 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FC3EFD9239719EE00331B23 /* Build configuration list for PBXNativeTarget "Time Traveler" */;
 			buildPhases = (
-				23A2AE7BEA74DEDE94775BE3 /* [CP] Check Pods Manifest.lock */,
+				C941D9B5770BA47C47919447 /* [CP] Check Pods Manifest.lock */,
 				0FC3EFBE239719E400331B23 /* Sources */,
 				0FC3EFBF239719E400331B23 /* Frameworks */,
 				0FC3EFC0239719E400331B23 /* Resources */,
-				46E556EA0436B2D5D7C4DD7F /* [CP] Embed Pods Frameworks */,
-				45B946A9871BE57A0B075F6C /* [CP] Copy Pods Resources */,
+				2A553E695CA064B002E8FB0C /* [CP] Embed Pods Frameworks */,
+				B1A8CBB4BB3F5A67C81E1108 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F24F2D923A4701400509D3B /* UserTableViewCell.xib in Resources */,
 				0FC3EFD5239719EE00331B23 /* LaunchScreen.storyboard in Resources */,
 				0F71AA31239F06F700FE1C77 /* PlaceTableCell.xib in Resources */,
 				0F77D0F0239B4C3900574C5F /* PostTableViewCell.xib in Resources */,
@@ -280,7 +287,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23A2AE7BEA74DEDE94775BE3 /* [CP] Check Pods Manifest.lock */ = {
+		2A553E695CA064B002E8FB0C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1A8CBB4BB3F5A67C81E1108 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C941D9B5770BA47C47919447 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -300,40 +341,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		45B946A9871BE57A0B075F6C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		46E556EA0436B2D5D7C4DD7F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Time Traveler/Pods-Time Traveler-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -357,6 +364,7 @@
 				0FC3EFEE239729AB00331B23 /* FindUsersViewController.swift in Sources */,
 				0F71AA30239F06F700FE1C77 /* PlaceTableCell.swift in Sources */,
 				0FC3EFC8239719E400331B23 /* SceneDelegate.swift in Sources */,
+				0F24F2D823A4701400509D3B /* UserTableViewCell.swift in Sources */,
 				0FC3EFF22398091B00331B23 /* UploadViewController.swift in Sources */,
 				0F71AA2D239EF56000FE1C77 /* PlacesViewController.swift in Sources */,
 				0F629BFB239C3873004B46E3 /* UserPostCollectionViewCell.swift in Sources */,
@@ -508,7 +516,7 @@
 		};
 		0FC3EFDA239719EE00331B23 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 091F0286E8B7EB25C52DD55B /* Pods-Time Traveler.debug.xcconfig */;
+			baseConfigurationReference = E9988CDBA511B6A8BE9276C2 /* Pods-Time Traveler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -527,7 +535,7 @@
 		};
 		0FC3EFDB239719EE00331B23 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03FEF65BDD59649B9B8A4826 /* Pods-Time Traveler.release.xcconfig */;
+			baseConfigurationReference = 781CDB244EDD517D1A152AFB /* Pods-Time Traveler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

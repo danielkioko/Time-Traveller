@@ -119,16 +119,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="APW-S1-yAz">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="98" id="wvm-Af-AaV">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="98"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wvm-Af-AaV" id="6sJ-RT-a0j">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -145,6 +135,9 @@
                         <viewLayoutGuide key="safeArea" id="9GH-sV-SFL"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="People" image="person.2" catalog="system" id="EGc-tv-zOA"/>
+                    <connections>
+                        <outlet property="tableView" destination="APW-S1-yAz" id="cN7-dF-bmo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKq-su-Bdl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -238,29 +231,29 @@
             <objects>
                 <viewController storyboardIdentifier="NewEvent" title="NewEvent" id="DPr-Wo-A6Q" customClass="NewEventViewController" customModule="Time_Traveler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CRp-Xt-ObI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vzc-bn-Hxx">
-                                <rect key="frame" x="65" y="136" width="285" height="264"/>
+                                <rect key="frame" x="65" y="92" width="285" height="264"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="264" id="ewT-xY-izI"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mX8-aW-mic">
-                                <rect key="frame" x="65" y="461" width="285" height="34"/>
+                                <rect key="frame" x="65" y="417" width="285" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehm-mX-vLE">
-                                <rect key="frame" x="65" y="541" width="285" height="30"/>
+                                <rect key="frame" x="65" y="497" width="285" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="done:" destination="DPr-Wo-A6Q" eventType="touchUpInside" id="X7c-fj-yqv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71Z-h9-lZc">
-                                <rect key="frame" x="65" y="408" width="285" height="30"/>
+                                <rect key="frame" x="65" y="364" width="285" height="30"/>
                                 <state key="normal" title="Select Photos"/>
                                 <connections>
                                     <action selector="selectPhotos:" destination="DPr-Wo-A6Q" eventType="touchUpInside" id="f6t-GC-r1d"/>
@@ -284,6 +277,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Hn-ku-o7M"/>
                     </view>
+                    <navigationItem key="navigationItem" id="t6T-Yu-K3q"/>
                     <connections>
                         <outlet property="eventName" destination="mX8-aW-mic" id="nPN-sv-6NR"/>
                         <outlet property="imageView" destination="vzc-bn-Hxx" id="r7i-Xr-igH"/>
@@ -435,7 +429,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9F4-gr-2iH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Places" largeTitleDisplayMode="always" id="LnT-6h-rFB"/>
+                    <navigationItem key="navigationItem" title="Places" largeTitleDisplayMode="always" id="LnT-6h-rFB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wGV-rz-wv1">
+                            <connections>
+                                <segue destination="DPr-Wo-A6Q" kind="showDetail" id="PMf-Pc-Gcs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="h3C-Nv-FnU" id="cFN-DM-m3Q"/>
                     </connections>

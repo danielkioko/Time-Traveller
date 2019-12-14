@@ -46,7 +46,9 @@ class FirFile: NSObject {
                 
                 self.kFirFileStorageRef.downloadURL { (url, error) in
                   guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
+                    if error != nil {
+                        //print(error)
+                    }
                     return
                   }
                     let urlString = downloadURL.absoluteString

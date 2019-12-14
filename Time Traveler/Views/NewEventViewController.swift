@@ -15,6 +15,9 @@ import BSImagePicker
 
 class NewEventViewController: UIViewController, CLLocationManagerDelegate {
     
+    var imageUrls:[String] = []
+    var eventReference: DatabaseReference?
+    
     let locationManager = CLLocationManager()
     var locationString: String?
     
@@ -118,45 +121,95 @@ class NewEventViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func done(_ sender:Any) {
+        uploadEventData()
+    }
+    
+    func uploadEventData() {
+                        
+        guard let userProfile = UserService.currentUserProfile else { return }
+                        
+        let eventObject = [
+            "author" : [
+                "name" : userProfile.name,
+                "email" : userProfile.email,
+                "profileImageUrl":  userProfile.profileImageUrl
+            ],
+            "eventName": self.eventName.text!,
+            "eventLocation": self.locationString!,
+            "timestamp": [".sv":"timestamp"]
+        ] as [String : Any]
+                        
+        let eventRef = Database.database().reference().child("events").childByAutoId()
+        eventRef.updateChildValues(eventObject, withCompletionBlock: {(err, ref) in
+            
+            if let err = err {
+                print(err)
+                return
+            }
+            self.eventReference = eventRef
+            
+        })
         
-        startUploading {
-            "Uploading..."
+        print("Data Uploaded")
+        uploadEventAssets()
+                                                
+    }
+    
+    func uploadEventAssets() {
+        
+        var i = 0
+        
+        while i < eventImages.count {
+            
+            let imageName = UUID().uuidString
+            let storageRef = Storage.storage().reference().child("event_images").child("\(imageName)" + "_" + String(i) + ".png")
+                
+            if let uploadData = eventImages[i].pngData() {
+                
+                storageRef.putData(uploadData, metadata: nil) { (_, err) in
+                    
+                    if let error = err {
+                        print(error)
+                        return
+                    }
+                    
+                    storageRef.downloadURL { (url, err) in
+                        
+                        if let err = err {
+                            print(err)
+                        }
+                        
+                        guard let url = url else { return }
+                        self.imageUrls.append(url.absoluteString)
+                        self.uploadImageArray()
+                        //print("Showing image urls")
+                        //print(self.imageUrls)
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            i += 1
         }
+    }
+    
+    func uploadImageArray () {
+        
+        let values = ["eventImages": self.imageUrls]
+        
+        self.eventReference?.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            
+            if let err = err {
+                print(err)
+                return
+            }
+            
+            print("Saved images successfully into Firebase DB")
+            
+        })
         
     }
     
-    func startUploading(completion: @escaping FileCompletionBlock) {
-         if eventImages.count == 0 {
-            completion()
-            return;
-         }
-
-         block = completion
-         uploadImage(forIndex: 0)
-    }
-    
-    func uploadImage(forIndex index:Int) {
-
-         if index < eventImages.count {
-            let data = eventImages[index].pngData()!
-            
-            let indexString = String(index)
-            let name = eventName.text
-            
-            let fileName = String(format: "%@.png", "_img_")
-
-              FirFile.shared.upload(data: data, withName: fileName, block: { (url) in
-                  /// After successfully uploading call this method again by increment the **index = index + 1**
-                  print(url ?? "Couldn't not upload. You can either check the error or just skip this.")
-                  self.uploadImage(forIndex: index + 1)
-               })
-            
-            return
-          }
-
-          if block != nil {
-             block!()
-          }
-    }
-
 }

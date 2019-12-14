@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
         
@@ -31,6 +32,39 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         self.collectionView?.collectionViewLayout = layout
+        
+        //observeEvents()
+        
+    }
+    
+    func observeEvents() {
+        
+        let eventsRef = Database.database().reference().child("events")
+        
+        eventsRef.observe(.value) { (snapshot) in
+            
+            var tempEvents = [Place]()
+            
+            for child in snapshot.children {
+                
+                if let childSnapshot = child as? DataSnapshot,
+                
+                    let dict = childSnapshot.value as? [String:Any],
+                    let images = dict["eventImages"] as? [String:Any],
+                    
+                    let eventName = dict["eventName"] as? String,
+                    let eventLocation = dict["eventLocation"] as? String {
+                    
+                    let event = Place(placeImage: "",
+                                      placeName: eventLocation)
+                    tempEvents.append(event)
+                    self.collectionView.reloadData()
+                    
+                }
+                
+            }
+            
+        }
         
     }
     
