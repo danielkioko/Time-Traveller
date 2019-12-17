@@ -13,6 +13,7 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     let reuseIdentifier = "PlaceCell"
     var places = [Place]()
+    var acquiredImageUrls:[String:Any] = [:]
     
     var images = ["portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik"]
     var names = ["Daniel", "Nicholas", "Moulinette", "Daniel", "Nicholas", "Moulinette","Daniel", "Nicholas", "Moulinette", "Daniel", "Nicholas", "Moulinette"]
@@ -33,8 +34,32 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         layout.minimumLineSpacing = 8
         self.collectionView?.collectionViewLayout = layout
         
-        //observeEvents()
         
+        
+        //observeEvents()
+        getImages()
+        
+    }
+
+    func getImages() {
+
+        let imagesRef = Database.database().reference().child("events")
+        imagesRef.observe(.value, with: { (snapshot) in
+
+//            var tempImgUrls:[String:Any] = [:]
+            for child in snapshot.children {
+
+                let childSnapshot = child as? DataSnapshot
+                let dict = childSnapshot?.value as? [String:Any]
+                
+                let image = dict!["eventImages"] as? [String: AnyObject]
+                
+//                print(self.acquiredImageUrls)
+                
+            }
+
+        })
+
     }
     
     func observeEvents() {
@@ -52,7 +77,6 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
                     let dict = childSnapshot.value as? [String:Any],
                     let images = dict["eventImages"] as? [String:Any],
                     
-                    let eventName = dict["eventName"] as? String,
                     let eventLocation = dict["eventLocation"] as? String {
                     
                     let event = Place(placeImage: "",

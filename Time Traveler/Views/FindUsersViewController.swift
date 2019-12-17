@@ -41,7 +41,6 @@ class FindUsersViewController: UIViewController, UITableViewDelegate, UITableVie
             for child in snapshot.children {
                 
                 if let childSnapshot = child as? DataSnapshot,
-                
                 let dict = childSnapshot.value as? [String:Any],
                 
                 let name = dict["name"] as? String,

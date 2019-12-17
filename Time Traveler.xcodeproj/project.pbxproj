@@ -24,6 +24,7 @@
 		0F77D0F2239B528F00574C5F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F77D0F1239B528F00574C5F /* Post.swift */; };
 		0F77D0F4239B6A6C00574C5F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F77D0F3239B6A6C00574C5F /* UserService.swift */; };
 		0F7F9D8523A2995200DE7021 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F9D8423A2995200DE7021 /* NewEventViewController.swift */; };
+		0FBC2C6823A7266F006DE1FE /* SingleImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC2C6723A7266F006DE1FE /* SingleImages.swift */; };
 		0FC3EFC6239719E400331B23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3EFC5239719E400331B23 /* AppDelegate.swift */; };
 		0FC3EFC8239719E400331B23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3EFC7239719E400331B23 /* SceneDelegate.swift */; };
 		0FC3EFCA239719E400331B23 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3EFC9239719E400331B23 /* LoginController.swift */; };
@@ -61,6 +62,7 @@
 		0F77D0F1239B528F00574C5F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0F77D0F3239B6A6C00574C5F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		0F7F9D8423A2995200DE7021 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
+		0FBC2C6723A7266F006DE1FE /* SingleImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImages.swift; sourceTree = "<group>"; };
 		0FC3EFC2239719E400331B23 /* Time Traveler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Traveler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC3EFC5239719E400331B23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FC3EFC7239719E400331B23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				0F629BFD239C3FA8004B46E3 /* UserPost.swift */,
 				0F77D0F1239B528F00574C5F /* Post.swift */,
 				0F71AA32239F098B00FE1C77 /* Place.swift */,
+				0FBC2C6723A7266F006DE1FE /* SingleImages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				0F71AA2B239C886200FE1C77 /* ImageService.swift in Sources */,
 				0FC3EFD0239719E400331B23 /* Time_Traveler.xcdatamodeld in Sources */,
 				0FC3EFC6239719E400331B23 /* AppDelegate.swift in Sources */,
+				0FBC2C6823A7266F006DE1FE /* SingleImages.swift in Sources */,
 				0F130336239831A700D6A695 /* UserProfile.swift in Sources */,
 				0F71AA33239F098B00FE1C77 /* Place.swift in Sources */,
 				0FC3EFEE239729AB00331B23 /* FindUsersViewController.swift in Sources */,

@@ -13,8 +13,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var dummyPosts = [UserPost]()
     let reuseIdentifier = "UserPostCell"
+    var emailString = ""
     
     var images = ["portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik"]
+    
+    var importedImages:[String] = []
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
@@ -27,6 +30,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchImages()
+        
         let cell = UINib(nibName: "UserPostCollectionViewCell", bundle: nil)
         collectionView.register(cell, forCellWithReuseIdentifier: reuseIdentifier)
         let width = UIScreen.main.bounds.width
@@ -37,32 +42,72 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         self.collectionView?.collectionViewLayout = layout
         
         //fetchUser()
-        //fetchPosts()
         self.profileImage.image = UIImage(named: "erik")
     }
     
-    func fetchPosts() {
+    func fetchImages() {
         
-        let postsRef = Database.database().reference().child("posts")
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
         
-        postsRef.observe(.value, with: { snapshot in
-            
-            var tempPosts = [UserPost]()
+        let userRef = Database.database().reference().child("users").child(uid).child("email")
+        
+        let postRef = Database.database().reference().child("posts")
+        
+        var tempPosts = [UserPost]()
+        
+        var leMail:String = ""
+        
+        let profileRef = Database.database().reference().child("users")
+        profileRef.observe(.value) { (snapshot) in
             
             for child in snapshot.children {
                 
                 if let childSnapshot = child as? DataSnapshot,
-                    
-                    let dict = childSnapshot.value as? [String:Any],
-                    let image = dict["postImageUrl"] as? String {
-                    let post = UserPost(image: image)
-                    tempPosts.append(post)
+                let dict = childSnapshot.value as? [String:Any],
+                
+                let email = dict["email"] as? String {
+                    leMail = email
+                    print(leMail)
                 }
             }
-            self.posts = tempPosts
-            self.collectionView.reloadData()
+        }
+        
+        print(leMail)
+        
+        postRef.observe(.value, with: { (snapshot) in
+                        
+            for child in snapshot.children {
+                
+                if let childSnapshot = child as? DataSnapshot,
+                                        
+                    let dict = childSnapshot.value as? [String:Any],
+                    let author = dict["author"] as? [String:Any],
+                    let email = author["email"] as? String,
+                    
+                    let image = dict["postImageUrl"] as? String  {
+                    
+                    //print(email)
+//                    print(self.emailString)
+                    
+                    if (email == self.emailString) {
+                        let post = UserPost(image: image)
+                        tempPosts.append(post)
+                        print("POSTS HERE")
+                        print(tempPosts)
+                    }
+                    
+                }
+                
+                self.posts = tempPosts
+                self.collectionView.reloadData()
+                
+            }
             
         })
+        
+        print(self.importedImages)
         
     }
     
@@ -111,13 +156,13 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return posts.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UserPostCollectionViewCell
-        //cell.set(post: posts[indexPath.row])
-        cell.postImage.image = UIImage(named: images[indexPath.row])
+        cell.set(post: posts[indexPath.row])
+//        cell.postImage.image = UIImage(named: importedImages[indexPath.row])
         return cell
     }
 

@@ -14,6 +14,7 @@ import CoreLocation
 class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         
     let locationManager = CLLocationManager()
+    var urlArray:[String] = []
     
     @IBOutlet var postImageView: UIImageView!
     @IBOutlet var postCaption: UITextField!
@@ -57,6 +58,58 @@ class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImage
     @IBAction func uploadBtn(_ sender: Any) {
         uploadPost()
     }
+    
+    func downloadPostArray() {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let ref = Database.database().reference().child("users").child(uid)
+        ref.observe(.value) { (snapshot) in
+            
+            for child in snapshot.children {
+                
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    let postUrls = dict["posts"] as? [String] {
+                    
+                    self.urlArray = postUrls
+                    
+                }
+                
+                
+            }
+            
+        }
+        
+        print("THIS IS THE ARRAY")
+        print(self.urlArray)
+        
+    }
+    
+    func updateUsersPostsList(url: URL) {
+        
+        downloadPostArray()
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference().child("users").child(uid)
+        
+        self.urlArray.append(url.absoluteString)
+        
+        let value = ["posts": self.urlArray]
+        
+        ref.updateChildValues(value, withCompletionBlock: { (err, ref) in
+            if let err = err {
+                print(err)
+                return
+            }
+            print("Post Listed")
+        })
+        
+    }
 
     func uploadPost() {
         
@@ -80,6 +133,8 @@ class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImage
                     }
                     
                     guard let url = url else { return }
+                    
+                    self.updateUsersPostsList(url: url)
                     
                     guard let userProfile = UserService.currentUserProfile else { return }
                     

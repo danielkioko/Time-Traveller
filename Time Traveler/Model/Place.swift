@@ -12,6 +12,7 @@ class Place {
     
     var placeImage: String
     var placeName: String
+    var images = [SingleImage]()
     
     init(placeImage: String, placeName: String) {
         self.placeName = placeName
