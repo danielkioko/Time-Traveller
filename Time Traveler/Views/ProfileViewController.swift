@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         var tempPosts = [UserPost]()
         
-        var leMail:String = ""
+        var leMail:String?
         
         let profileRef = Database.database().reference().child("users")
         profileRef.observe(.value) { (snapshot) in
@@ -66,15 +66,15 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                 
                 if let childSnapshot = child as? DataSnapshot,
                 let dict = childSnapshot.value as? [String:Any],
-                
+
                 let email = dict["email"] as? String {
                     leMail = email
-                    print(leMail)
+                    //print(leMail)
                 }
+                
+                print(leMail ?? "")
             }
         }
-        
-        print(leMail)
         
         postRef.observe(.value, with: { (snapshot) in
                         
@@ -88,14 +88,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                     
                     let image = dict["postImageUrl"] as? String  {
                     
-                    //print(email)
-//                    print(self.emailString)
-                    
-                    if (email == self.emailString) {
+                    if (email != leMail) {
                         let post = UserPost(image: image)
                         tempPosts.append(post)
-                        print("POSTS HERE")
-                        print(tempPosts)
+//                        print("POSTS HERE")
+//                        print(tempPosts)
                     }
                     
                 }
@@ -107,7 +104,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
             
         })
         
-        print(self.importedImages)
+        //print(self.importedImages)
         
     }
     
