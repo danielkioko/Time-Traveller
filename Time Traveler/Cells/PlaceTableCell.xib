@@ -91,11 +91,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="eventImage" destination="wYh-Jx-inA" id="ely-lK-4IN"/>
+                <outlet property="eventLocation" destination="TEZ-gn-E2S" id="xKn-kH-1hA"/>
                 <outlet property="eventName" destination="EcJ-ii-9Pg" id="fwO-0y-EPj"/>
                 <outlet property="lineSeparator" destination="126-0k-OPg" id="cc1-Pc-OwX"/>
-                <outlet property="placeImage" destination="wYh-Jx-inA" id="K2N-zi-AKO"/>
                 <outlet property="placeLayer" destination="yUx-Ff-832" id="L9K-j9-B0V"/>
-                <outlet property="placeName" destination="TEZ-gn-E2S" id="JFC-l9-EEP"/>
             </connections>
             <point key="canvasLocation" x="196.37681159420291" y="108.14732142857143"/>
         </tableViewCell>

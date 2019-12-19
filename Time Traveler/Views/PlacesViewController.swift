@@ -13,10 +13,7 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     let reuseIdentifier = "PlaceCell"
     var places = [Place]()
-    var acquiredImageUrls:[String:Any] = [:]
-    
-    var images = ["portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik"]
-    var names = ["Daniel", "Nicholas", "Moulinette", "Daniel", "Nicholas", "Moulinette","Daniel", "Nicholas", "Moulinette", "Daniel", "Nicholas", "Moulinette"]
+    var acquiredImageUrls:[String] = []
     
     @IBOutlet var collectionView: UICollectionView!
 
@@ -28,15 +25,16 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 180, height: 275)
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         self.collectionView?.collectionViewLayout = layout
         
-        
-        
-        //observeEvents()
+        observeEvents()
         getImages()
         
     }
@@ -46,15 +44,15 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         let imagesRef = Database.database().reference().child("events")
         imagesRef.observe(.value, with: { (snapshot) in
 
-//            var tempImgUrls:[String:Any] = [:]
             for child in snapshot.children {
 
-                let childSnapshot = child as? DataSnapshot
-                let dict = childSnapshot?.value as? [String:Any]
+                if let childSnapshot = child as? DataSnapshot,
                 
-                let image = dict!["eventImages"] as? [String: AnyObject]
-                
-//                print(self.acquiredImageUrls)
+                    let dict = childSnapshot.value as? [String:Any],
+                    let image = dict["eventImages"] as? [String] {
+                    self.acquiredImageUrls = image
+                }
+                print(self.acquiredImageUrls)
                 
             }
 
@@ -75,12 +73,14 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
                 if let childSnapshot = child as? DataSnapshot,
                 
                     let dict = childSnapshot.value as? [String:Any],
-                    let images = dict["eventImages"] as? [String:Any],
                     
+                    let author = dict["author"] as? [String:Any],
+                    let name = author["name"] as? String,
+                    
+                    let eventImage = dict["thumbnail"] as? String,
+                    let eventName = dict["eventName"] as? String,
                     let eventLocation = dict["eventLocation"] as? String {
-                    
-                    let event = Place(placeImage: "",
-                                      placeName: eventLocation)
+                    let event = Place(eventImage: eventImage, eventName: eventName, eventLocation: eventLocation)
                     tempEvents.append(event)
                     self.collectionView.reloadData()
                     
@@ -88,18 +88,19 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
                 
             }
             
+            
+            
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        places.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PlaceTableCell
-        cell.placeImage.image = UIImage(named: images[indexPath.row])
-        cell.placeName.text = names[indexPath.row]
+        cell.set(place: places[indexPath.row])
         return cell
     }
     

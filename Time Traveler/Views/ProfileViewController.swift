@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var dummyPosts = [UserPost]()
     let reuseIdentifier = "UserPostCell"
+    let headerIdentifier = "Header"
     var emailString = ""
     
     var images = ["portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik"]
@@ -32,17 +33,26 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         fetchImages()
         
+        let headerCell = UINib(nibName: "HeaderViewCell", bundle: nil)
+        collectionView.register(headerCell, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        
+        //Post Cells
         let cell = UINib(nibName: "UserPostCollectionViewCell", bundle: nil)
         collectionView.register(cell, forCellWithReuseIdentifier: reuseIdentifier)
+        
         let width = UIScreen.main.bounds.width
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: (width / 2) - 25, height: (width / 2) - 25)
         layout.minimumInteritemSpacing = 2
         layout.minimumLineSpacing = 8
+        layout.headerReferenceSize = CGSize(width: 340, height: 180)
         self.collectionView?.collectionViewLayout = layout
         
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        
         //fetchUser()
-        self.profileImage.image = UIImage(named: "erik")
+        //self.profileImage.image = UIImage(named: "erik")
     }
     
     func fetchImages() {
@@ -154,6 +164,17 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let supplementary = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as? HeaderViewCell {
+            supplementary.backgroundColor = UIColor.white
+            supplementary.name.text = "Daniel Kioko"
+            supplementary.location.text = "Elk Grove, CA"
+            
+            return supplementary
+        }
+        fatalError("Unable to Deque Reusable Supplementary View")
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

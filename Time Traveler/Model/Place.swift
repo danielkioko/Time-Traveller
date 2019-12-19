@@ -10,13 +10,14 @@ import UIKit
 
 class Place {
     
-    var placeImage: String
-    var placeName: String
-    var images = [SingleImage]()
+    var eventImage: String
+    var eventName: String
+    var eventLocation: String
     
-    init(placeImage: String, placeName: String) {
-        self.placeName = placeName
-        self.placeImage = placeName
+    init(eventImage: String, eventName: String, eventLocation: String) {
+        self.eventImage = eventImage
+        self.eventName = eventName
+        self.eventLocation = eventLocation
     }
     
 }

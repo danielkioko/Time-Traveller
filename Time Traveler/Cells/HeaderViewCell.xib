@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HeaderViewCell" customModule="Time_Traveler" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="140"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="340" height="140"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBP-wb-NDP">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="140"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daniel" translatesAutoresizingMaskIntoConstraints="NO" id="J0r-Ad-3Y1">
+                                <rect key="frame" x="138" y="16" width="65" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="J0r-Ad-3Y1" secondAttribute="height" multiplier="1:1" id="JJX-e9-CKa"/>
+                                    <constraint firstAttribute="height" constant="65" id="SXP-PE-Jq0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daniel Nzioka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5V-3v-SMS">
+                                <rect key="frame" x="8" y="89" width="324" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elk Grove, CA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaC-09-Yv7">
+                                <rect key="frame" x="8" y="112.5" width="324" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="r5V-3v-SMS" secondAttribute="trailing" constant="8" id="2Ck-lU-4q6"/>
+                            <constraint firstAttribute="trailing" secondItem="kaC-09-Yv7" secondAttribute="trailing" constant="8" id="76I-2l-vvK"/>
+                            <constraint firstItem="r5V-3v-SMS" firstAttribute="top" secondItem="J0r-Ad-3Y1" secondAttribute="bottom" constant="8" id="FUf-UV-qfn"/>
+                            <constraint firstItem="J0r-Ad-3Y1" firstAttribute="leading" secondItem="bBP-wb-NDP" secondAttribute="leading" constant="138" id="L3o-rj-Foj"/>
+                            <constraint firstAttribute="trailing" secondItem="J0r-Ad-3Y1" secondAttribute="trailing" constant="137" id="hvw-A5-Hau"/>
+                            <constraint firstItem="r5V-3v-SMS" firstAttribute="leading" secondItem="bBP-wb-NDP" secondAttribute="leading" constant="8" id="hzZ-T8-LCj"/>
+                            <constraint firstAttribute="bottom" secondItem="kaC-09-Yv7" secondAttribute="bottom" constant="13" id="igh-dL-XoT"/>
+                            <constraint firstItem="J0r-Ad-3Y1" firstAttribute="top" secondItem="bBP-wb-NDP" secondAttribute="top" constant="16" id="l9N-U2-DSE"/>
+                            <constraint firstItem="kaC-09-Yv7" firstAttribute="top" secondItem="r5V-3v-SMS" secondAttribute="bottom" constant="4" id="ub6-Ay-vYa"/>
+                            <constraint firstItem="kaC-09-Yv7" firstAttribute="leading" secondItem="bBP-wb-NDP" secondAttribute="leading" constant="8" id="zMb-ey-rt6"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bBP-wb-NDP" secondAttribute="trailing" id="LHc-sS-1dl"/>
+                <constraint firstAttribute="bottom" secondItem="bBP-wb-NDP" secondAttribute="bottom" id="bEa-Le-V7d"/>
+                <constraint firstItem="bBP-wb-NDP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ebD-xR-izK"/>
+                <constraint firstItem="bBP-wb-NDP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="m96-5W-OaC"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="340" height="140"/>
+            <connections>
+                <outlet property="location" destination="kaC-09-Yv7" id="RbW-Jj-HJk"/>
+                <outlet property="name" destination="r5V-3v-SMS" id="URw-Z4-GNQ"/>
+                <outlet property="profilePhoto" destination="J0r-Ad-3Y1" id="dFa-lQ-fGg"/>
+            </connections>
+            <point key="canvasLocation" x="181.15942028985509" y="133.92857142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="daniel" width="3840" height="5275"/>
+    </resources>
+</document>

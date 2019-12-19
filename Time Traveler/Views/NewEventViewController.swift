@@ -197,7 +197,9 @@ class NewEventViewController: UIViewController, CLLocationManagerDelegate {
     
     func uploadImageArray () {
         
-        let values = ["eventImages": self.imageUrls]
+        let values = [
+             "thumbnail": self.imageUrls[0],
+            "eventImages": self.imageUrls] as [String : Any]
         
         self.eventReference?.updateChildValues(values, withCompletionBlock: { (err, ref) in
             
