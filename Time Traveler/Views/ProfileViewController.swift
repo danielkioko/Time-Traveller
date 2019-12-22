@@ -16,6 +16,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     let headerIdentifier = "Header"
     var emailString = ""
     
+    var allPostUIDs:[String]?
+    
     var images = ["portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik", "portugal", "miami", "erik"]
     
     var importedImages:[String] = []
@@ -32,6 +34,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         
         fetchImages()
+        fetchPosts()
         
         let headerCell = UINib(nibName: "HeaderViewCell", bundle: nil)
         collectionView.register(headerCell, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
@@ -53,6 +56,70 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         //fetchUser()
         //self.profileImage.image = UIImage(named: "erik")
+    }
+    
+    func fetchPosts() {
+        
+        print("Now running Fetch Posts")
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        var lePosts:[String] = []
+        
+        let userRef = Database.database().reference().child("users").child(uid)
+        userRef.observe(.value, with: { (snapshot) in
+            
+            for child in snapshot.children {
+                
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    let posts = dict["posts"] as? [String] {
+                    
+                    lePosts = posts
+                    print(posts)
+                    
+                    var key = 0
+                    while (key < lePosts.count) {
+                        
+                        let postRef = Database.database().reference().child("posts")
+                        postRef.observe(.value) { (snapshot) in
+                            
+                            var tempPosts = [UserPost]()
+                            
+                            for child in snapshot.children {
+                                
+                                if (snapshot.key as String == lePosts[key]) {
+                                    
+                                    if let childSnapshot = child as? DataSnapshot,
+                                        
+                                        let dict = childSnapshot.value as? [String:Any],
+                                        let image = dict["postImageUrl"] as? String {
+                                        
+                                        let post = UserPost(image: image)
+                                        tempPosts.append(post)
+                                        print("TEMP POSTS")
+                                        print(tempPosts)
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        
+                        key += 1
+                    }
+                            
+                    }
+                    
+                }
+            
+        })
+        
     }
     
     func fetchImages() {

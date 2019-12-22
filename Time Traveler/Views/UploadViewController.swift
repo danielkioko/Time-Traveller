@@ -16,6 +16,8 @@ class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImage
     let locationManager = CLLocationManager()
     var urlArray:[String] = []
     
+    var temporaryPostRef = ""
+    
     @IBOutlet var postImageView: UIImageView!
     @IBOutlet var postCaption: UITextField!
     @IBOutlet var postLocation: UITextField!
@@ -59,57 +61,34 @@ class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImage
         uploadPost()
     }
     
-    func downloadPostArray() {
-        
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
-        let ref = Database.database().reference().child("users").child(uid)
-        ref.observe(.value) { (snapshot) in
-            
-            for child in snapshot.children {
-                
-                if let childSnapshot = child as? DataSnapshot,
-                    let dict = childSnapshot.value as? [String:Any],
-                    let postUrls = dict["posts"] as? [String] {
-                    
-                    self.urlArray = postUrls
-                    
-                }
-                
-                
-            }
-            
-        }
-        
-        print("THIS IS THE ARRAY")
-        print(self.urlArray)
-        
-    }
-    
-    func updateUsersPostsList(url: URL) {
-        
-        downloadPostArray()
-        
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        let ref = Database.database().reference().child("users").child(uid)
-        
-        self.urlArray.append(url.absoluteString)
-        
-        let value = ["posts": self.urlArray]
-        
-        ref.updateChildValues(value, withCompletionBlock: { (err, ref) in
-            if let err = err {
-                print(err)
-                return
-            }
-            print("Post Listed")
-        })
-        
-    }
+//    func downloadPostArray() {
+//
+//        guard let uid = Auth.auth().currentUser?.uid else {
+//            return
+//        }
+//
+//        let ref = Database.database().reference().child("users").child(uid)
+//        ref.observe(.value) { (snapshot) in
+//
+//            for child in snapshot.children {
+//
+//                if let childSnapshot = child as? DataSnapshot,
+//                    let dict = childSnapshot.value as? [String:Any],
+//                    let postUrls = dict["posts"] as? [String] {
+//
+//                    self.urlArray = postUrls
+//
+//                }
+//
+//
+//            }
+//
+//        }
+//
+//        print("THIS IS THE ARRAY")
+//        print(self.urlArray)
+//
+//    }
 
     func uploadPost() {
         
@@ -134,8 +113,6 @@ class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImage
                     
                     guard let url = url else { return }
                     
-                    self.updateUsersPostsList(url: url)
-                    
                     guard let userProfile = UserService.currentUserProfile else { return }
                     
                     let postObject = [
@@ -159,8 +136,15 @@ class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImage
                             return
                         }
                     })
+                    
+
+                    print("This is the post UID")
+                    print(postRef.key)
+                    self.temporaryPostRef = postRef.key!
 
                     print("Sucessfully Uploaded!")
+                    
+                    self.updateUsersPostsList()
                     
                     let placeRef = Database.database().reference().child("locations")
                     
@@ -185,6 +169,29 @@ class UploadViewController: UIViewController, CLLocationManagerDelegate, UIImage
             })
             
         }
+        
+    }
+    
+    func updateUsersPostsList() {
+        
+       // downloadPostArray()
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference().child("users").child(uid)
+        
+        self.urlArray.append(temporaryPostRef)
+        
+        let value = ["posts": self.urlArray]
+        
+        ref.updateChildValues(value, withCompletionBlock: { (err, ref) in
+            if let err = err {
+                print(err)
+                return
+            }
+            print("Post Listed")
+        })
         
     }
     

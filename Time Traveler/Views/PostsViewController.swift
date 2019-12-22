@@ -26,6 +26,7 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: reuseIdentifier)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
